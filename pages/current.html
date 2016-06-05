@@ -1,6 +1,5 @@
 <div class="container-fluid header text-center">
   <h3>Weather Forecast App</h3>
-  <a href ="#/forecast" type="button" class="btn btn-danger pull-right">forecast</a>
 </div>
 
 <div class="row" ng-controller="HomeController as hm">
@@ -9,7 +8,9 @@
     <div class="form-group">
       <input type="text" class="form-control" ng-model="hm.cityName"/>
     </div>
-    <a class="btn btn-primary" ng-click="hm.getCityTemperature()">Gets Info</a>
+    <a class="btn btn-primary" ng-click="hm.getCityTemperature()">Get Info</a>
+    <a href ="#/forecast" type="button" class="btn btn-danger pull-right">forecast</a>
+
     <h3 id="textInfo"></h3>
   </div>
   <div class="col-md-6 col-md-offset-3" id="result">
@@ -24,10 +25,10 @@
       </thead>
       <tbody>
       <tr>
-        <th>{{hm.weatherResponse.dt}}</th>
-        <th>{{hm.weatherResponse.main.temp}} &#8451;</th>
-        <th>{{hm.weatherResponse.main.humidity}}</th>
-        <th>{{hm.weatherResponse.weather[0].description}}</th>
+        <td>{{hm.weatherResponse.dt*1000 | date : 'dd-MM-yy'}}</td>
+        <td>{{hm.weatherResponse.main.temp}} &#8451;</td>
+        <td>{{hm.weatherResponse.main.humidity}}</td>
+        <td>{{hm.weatherResponse.weather[0].description}}</td>
       </tr>
       </tbody>
     </table>
