@@ -24,10 +24,15 @@ angularApp.controller("HomeController",function($resource){
     vm.weather.$promise.then(function(data){
       vm.weatherResponse = data;
       vm.weatherResponse.main.temp -= 273;
+      vm.weatherResponse.main.degree = Math.round(vm.weatherResponse.main.temp);
       console.log(vm.weatherResponse);
     }, function(error){
       console.log(error);
     });
+   }
+
+   vm.convertDate = function(x){
+     return Date(x*1000);
    }
 });
 
@@ -43,8 +48,11 @@ angularApp.controller("ForecastController",function($resource){
     console.log(vm.forecastResponse);
    }
 
-   var convert = function(x){
-     return Math.round(x-273.15);
-   };
+   vm.convert = function(x){
+     return Math.round(x-273);
+   }
+
+
+
 
 });

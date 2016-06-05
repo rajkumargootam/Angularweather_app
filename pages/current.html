@@ -25,8 +25,8 @@
       </thead>
       <tbody>
       <tr>
-        <td>{{hm.weatherResponse.dt*1000 | date : 'dd-MM-yy'}}</td>
-        <td>{{hm.weatherResponse.main.temp}} &#8451;</td>
+        <td>{{hm.convertDate(hm.weatherResponse.dt)}}</td>
+        <td>{{hm.weatherResponse.main.degree}} &#8451;</td>
         <td>{{hm.weatherResponse.main.humidity}}</td>
         <td>{{hm.weatherResponse.weather[0].description}}</td>
       </tr>
